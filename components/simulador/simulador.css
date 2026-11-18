@@ -1,14 +1,3 @@
-/* Estilos do Simulador (protótipo da pulseira), isolados do resto do site.
-   - Todo seletor começa em .simulador: nada aqui muda outras páginas, e o CSS global do
-     site (globals.css) só chega aqui pelas variáveis --altura-cabecalho e --espaco-fim.
-   - As regras de largura usam @container sim (o espaço do simulador), e não @media
-     (a janela): o simulador está dentro de uma página com margens, então a janela
-     nunca é a largura certa. Altura e orientação seguem como @media.
-   - Os @keyframes têm o prefixo "sim-" para não colidir com os do site.
-   - Com "Efeitos: desligados", o site zera animation e transition de tudo (globals.css),
-     inclusive aqui. Os sinais continuam visíveis em texto e no estado parado.
-   A parte final, "Encaixe no site", é do projeto; o resto veio do protótipo. */
-
 .simulador .luz-central{animation:sim-aguarde 1.6s infinite!important}
 @keyframes sim-aguarde{0%,7%,18%,29%,40%,100%{opacity:.18} 3%,14%,25%,36%{opacity:1;box-shadow:0 0 22px #ff3248}}
 .simulador .pulseira-horizontal{width:min(100%,440px);min-height:0!important;height:auto;overflow:visible;border:0!important;background:transparent!important;box-shadow:none!important}
@@ -56,6 +45,8 @@
 .simulador .menu-modos button{padding:10px 8px;border:0;border-radius:8px;background:transparent;text-align:left;color:#f3f3f3;font-size:12px}
 .simulador .menu-modos button:hover,.simulador .menu-modos .modo-selecionado{background:#3d2227;color:#ff737e}
 .simulador .erro-voz{position:absolute;top:calc(100% + 54px);width:min(340px,86cqw);text-align:center;color:#ff808a;font-size:12px}
+
+.simulador .inicio-apresentacao .erro-voz{position:absolute;top:50%;left:calc(100% - 20px);transform:translateY(-50%);width:200px;text-align:left;font-size:13px;line-height:1.4;padding:10px 12px;border:1px solid #ff4658;border-radius:10px;background:#17181bf2;z-index:5}
 .simulador .luz-lado{position:absolute;top:50%;width:21px;height:21px;border-radius:50%;background:#ff4355;opacity:0;transform:translateY(-50%)}
 .simulador .luz-esquerda{left:8px}
 .simulador .luz-direita{right:8px}
@@ -277,7 +268,7 @@
   .simulador .post-it{width:min(100%,420px);max-width:none;margin:0;padding:18px clamp(16px,5cqw,24px);font-size:clamp(12.5px,3.6cqw,14px)}
   .simulador .post-it-esquerdo{grid-row:2;transform:rotate(-2deg);align-self:center}
   .simulador .post-it-direito{grid-row:3;transform:rotate(2deg);align-self:center;margin:0}
-  .simulador .inicio-apresentacao .erro-voz{position:static;width:100%;margin:10px auto 0}
+  .simulador .inicio-apresentacao .erro-voz{position:static;transform:none;width:100%;margin:10px auto 0;text-align:center}
 }
 .simulador .tela-vitrine{padding:12px clamp(10px,2cqw,20px) 18px}
 .simulador .grade-vitrine{--colunas:7;--folga:12px;flex:1;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--folga)}
@@ -370,15 +361,6 @@
   }
 }
 
-/* =====================================================================
-   Encaixe no site
-   ===================================================================== */
-
-/* Moldura: o simulador é um "palco" dentro da página, não a página inteira.
-   - container sim: as regras de largura acima respondem a este elemento;
-   - isolation: o Leaflet usa z-index até 1000; aqui dentro, ele não passa por cima do
-     cabeçalho (z-30) nem da barra de navegação (z-40) do site;
-   - --sim-altura: altura mínima de cada tela (no lugar dos 100vh do protótipo). */
 .simulador{
   --sim-altura:clamp(30rem,calc(100svh - var(--altura-cabecalho,4rem) - var(--espaco-fim,6rem)),50rem);
   position:relative;isolation:isolate;
@@ -389,21 +371,16 @@
   text-align:left;text-transform:none;overflow-wrap:normal;
   scroll-margin-top:calc(var(--altura-cabecalho,4rem) + 1rem);
 }
-/* O foco vem por código ao trocar de tela; o contorno é só para o teclado. */
+
 .simulador:focus{outline:none}
 
-/* O site estiliza h1 a h4 (Anton, maiúsculas, laranja): aqui eles voltam ao texto comum.
-   :where() deixa a regra com especificidade mínima; as do simulador vencem. */
 .simulador :where(h1,h2,h3,h4,h5,h6){margin:0;font:inherit;color:inherit;text-transform:none;letter-spacing:normal;text-wrap:wrap}
 
-/* Texto só para leitor de tela (anúncio dos sinais). */
 .simulador .somente-leitor{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* Foco sempre visível, com 3 px como no resto do site. */
 .simulador button:focus-visible,.simulador input:focus-visible,.simulador :focus-visible{outline:3px solid #ff3f51;outline-offset:3px}
 .simulador .leaflet-container:focus-visible{outline-offset:-3px}
 
-/* Alvos de toque de 48 px ou mais (regra do site). */
 .simulador .barra-tela{height:auto;min-height:48px}
 .simulador .botao-voltar-inicio{min-width:48px;min-height:48px}
 .simulador .topo-vitrine button{width:48px;height:48px}
@@ -415,10 +392,8 @@
 .simulador .cartao-vitrine .controle-vitrine{min-height:48px;gap:6px;padding:4px 14px;font-size:12px}
 .simulador .cartao-vitrine>header{min-height:104px}
 
-/* Enquanto o mapa carrega (ele só existe no navegador). */
 .simulador .mapa-carregando{display:grid;place-items:center;color:#333;font-weight:700}
 
-/* Espaço menor que 320 px (celular de 320 px menos as margens do site). */
 @container sim (max-width:319px){
   .simulador .pulseira-horizontal{zoom:.82}
   .simulador .tela-rota,.simulador .tela-transporte{padding:8px}

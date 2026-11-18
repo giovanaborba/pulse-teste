@@ -1,9 +1,5 @@
 import { randomUUID } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
-
-// Rotas salvas do Simulador (CRUD no Postgres da Neon). Cada pessoa vê só as próprias
-// rotas, pelo identificador local que o navegador manda em x-pulseira-usuario.
-// Precisa da variável DATABASE_URL (ou POSTGRES_URL / NEON_DATABASE_URL) no ambiente.
 export const dynamic = "force-dynamic";
 
 const rotaExemplo = {

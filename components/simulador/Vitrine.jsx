@@ -2,8 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-// Os sinais da pulseira, um por cartão. O texto de cada cartão descreve o sinal e,
-// nos sonoros, o botão "Som" toca o som (só depois do toque, nunca sozinho).
 const SINAIS_VITRINE = [
   { grupo: "Tátil", nome: "Continue", tipo: "pressao", detalhe: "Pressão contínua no pulso." },
   { grupo: "Tátil", nome: "Pare", tipo: "parar", detalhe: "Vibração contínua até parar." },
@@ -100,7 +98,6 @@ function CartaoVitrine({ sinal }) {
     definirSom(true);
   };
 
-  // Ao sair da tela, o som para.
   useEffect(() => encerrarSom, [encerrarSom]);
 
   return (

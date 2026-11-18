@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Pulseira from "@/components/simulador/Pulseira";
 import { modos } from "@/lib/simulador/dados";
 
-// O mapa usa o Leaflet, que só funciona no navegador.
+// mapa usa o leaflet q só funciona no navegador mesmo
 const MapaRota = dynamic(() => import("@/components/simulador/MapaRota"), {
   ssr: false,
   loading: () => (
@@ -48,7 +48,6 @@ function AvisoSemaforo({ estado, segundos }) {
   );
 }
 
-// Texto do sinal que a pulseira está dando agora (em cada modo).
 function legendaDoSinal(nav, modo, evento) {
   const { estado } = nav;
   const sonoro = modo === modos[0];

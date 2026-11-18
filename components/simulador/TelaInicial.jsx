@@ -1,6 +1,5 @@
 import Pulseira from "@/components/simulador/Pulseira";
 
-// Tela inicial: a pulseira no centro, uma dica de uso de cada lado e as três opções.
 export default function TelaInicial({ pulso, nav, abrirVitrine, abrirRotas }) {
   return (
     <div className="tela-inicial">

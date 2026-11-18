@@ -16,7 +16,6 @@ function Partida({ partida, selecionada, clicar }) {
   );
 }
 
-// Ônibus, metrô e trem chegando: a pulseira avisa a partida escolhida com Braille.
 export default function TelaTransporte({ pulso, nav }) {
   const item = nav.partidas[nav.selecionada];
 

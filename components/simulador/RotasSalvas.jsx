@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import * as Servicos from "@/services/simuladorService";
 
-// Lista as rotas salvas: usar, editar e excluir (a rota de exemplo só pode ser usada).
 export default function RotasSalvas({ voltar, nav }) {
   const [rotas, definirRotas] = useState([]);
   const [carregando, definirCarregando] = useState(true);

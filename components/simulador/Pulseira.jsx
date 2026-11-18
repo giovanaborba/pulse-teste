@@ -72,9 +72,6 @@ function IconeFalante() {
   );
 }
 
-// A pulseira desenhada: tela, luzes dos lados, Braille e os dois botões (modo e voz).
-// A legenda do sinal também vai num role="status" escondido, para o leitor de tela
-// anunciar cada sinal (seção 6.3).
 export default function Pulseira({
   modo,
   menuAberto,

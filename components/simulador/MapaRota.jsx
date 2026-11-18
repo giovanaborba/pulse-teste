@@ -4,9 +4,6 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// O Leaflet usa window ao ser carregado; por isso este arquivo só entra no navegador
-// (TelaRota o carrega com next/dynamic e ssr: false).
-
 function pontoNaRota(coords, progresso) {
   const distancias = [0];
   const rad = Math.PI / 180;
@@ -35,7 +32,6 @@ export default function MapaRota({ rota, origem, destino, progresso, passos }) {
   const camadasRef = useRef([]);
   const jogadorRef = useRef(null);
 
-  // Cria o mapa uma vez e o redesenha se o espaço dele mudar (a página é responsiva).
   useEffect(() => {
     if (!elemento.current || mapaRef.current) return undefined;
     const mapa = L.map(elemento.current, { zoomControl: true, scrollWheelZoom: false }).setView(
@@ -58,7 +54,6 @@ export default function MapaRota({ rota, origem, destino, progresso, passos }) {
     };
   }, []);
 
-  // Desenha a rota, o destino e as travessias de semáforo.
   useEffect(() => {
     const mapa = mapaRef.current;
     if (!mapa || !rota || !origem || !destino) return;
@@ -69,7 +64,7 @@ export default function MapaRota({ rota, origem, destino, progresso, passos }) {
       coords.map(([lon, lat]) => [lat, lon]),
       { color: "#2878ff", weight: 6, opacity: 0.95 },
     ).addTo(mapa);
-    // A posição certa da pessoa vem do efeito de baixo, que roda logo em seguida.
+
     const inicio = pontoNaRota(coords, 0);
     const marcador = L.circleMarker([inicio[1], inicio[0]], {
       radius: 8,
@@ -106,7 +101,6 @@ export default function MapaRota({ rota, origem, destino, progresso, passos }) {
     window.setTimeout(() => mapa.invalidateSize(), 50);
   }, [rota, origem, destino, passos]);
 
-  // Move a bolinha azul conforme a pessoa anda.
   useEffect(() => {
     if (!jogadorRef.current || !rota?.geometry?.coordinates) return;
     const [lon, lat] = pontoNaRota(rota.geometry.coordinates, progresso);

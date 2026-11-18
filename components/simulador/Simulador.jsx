@@ -11,7 +11,6 @@ import Vitrine from "@/components/simulador/Vitrine";
 import { usePulseiraSimulador, useSomSemaforo } from "@/hooks/usePulseiraSimulador";
 import { useNavegacaoSimulador } from "@/hooks/useNavegacaoSimulador";
 
-// Nome de cada tela, lido pelo leitor de tela quando a pessoa troca de tela.
 const NOMES_DAS_TELAS = {
   inicio: "tela inicial",
   vitrine: "comandos da pulseira",
@@ -20,8 +19,7 @@ const NOMES_DAS_TELAS = {
   transporte: "ônibus e trem",
 };
 
-// O simulador inteiro. Tudo o que é visual vive dentro de .simulador (simulador.css),
-// para nada vazar para o resto do site.
+
 export default function Simulador() {
   const [vitrineAberta, definirVitrineAberta] = useState(false);
   const [rotasAbertas, definirRotasAbertas] = useState(false);
@@ -33,8 +31,6 @@ export default function Simulador() {
   const tela = vitrineAberta ? "vitrine" : rotasAbertas ? "rotas" : nav.tela;
   const telaAnterior = useRef(tela);
 
-  // Ao trocar de tela, o foco vai para o simulador (o botão clicado some) e a página
-  // volta ao topo dele, se ele tiver ficado para cima da tela.
   useEffect(() => {
     if (telaAnterior.current === tela) return;
     telaAnterior.current = tela;

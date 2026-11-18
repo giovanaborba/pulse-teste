@@ -24,9 +24,7 @@ export default function PaginaSimulador() {
 
       <div className="margem-lateral">
         <div className="mx-auto max-w-pagina">
-          {/* O simulador usa a largura toda da página (o espaço dele é medido por
-              container query, em simulador.css); o requisito de som + texto para
-              cada sinal vale dentro dele (seção 6.3 da especificação). */}
+          {}
           <Simulador />
         </div>
       </div>
