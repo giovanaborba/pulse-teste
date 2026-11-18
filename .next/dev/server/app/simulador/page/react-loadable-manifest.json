@@ -1,0 +1,19 @@
+{
+  "[project]/components/pulseira/CenaPulseira.jsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/components/pulseira/CenaPulseira.jsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/node_modules_three_build_three_core_18d0oq6so9l-t.js",
+      "static/chunks/node_modules_three_build_three_module_03rsyo66totzs.js",
+      "static/chunks/node_modules_three_examples_jsm_1yqpfkyd7nvhz._.js",
+      "static/chunks/_1iz_2j9os1qkn._.js"
+    ]
+  },
+  "[project]/components/simulador/MapaRota.jsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/components/simulador/MapaRota.jsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/node_modules_leaflet_dist_leaflet-src_12ie3ghkoq3o4.js",
+      "static/chunks/components_simulador_MapaRota_jsx_17k85xqaptvtu._.js",
+      "static/chunks/node_modules_leaflet_dist_leaflet_css_0zlyuace8hond.css"
+    ]
+  }
+}

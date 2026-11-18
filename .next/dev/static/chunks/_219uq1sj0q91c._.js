@@ -1,0 +1,5 @@
+(globalThis["TURBOPACK_CHUNK_LISTS"] || (globalThis["TURBOPACK_CHUNK_LISTS"] = [])).push({
+    script: typeof document === "object" ? document.currentScript : undefined,
+    chunks: ["static/chunks/[root-of-the-server]__1635g74kvm0si._.css","static/chunks/_0mpwcu63e-f79._.js","static/chunks/node_modules_@phosphor-icons_react_dist_021vjnwu4j9ne._.js","static/chunks/node_modules_motion-dom_dist_es_07xws41keyc67._.js","static/chunks/node_modules_framer-motion_dist_es_0cgqxif5b6kt9._.js","static/chunks/node_modules_gsap_1zwqb07tsr0xw._.js","static/chunks/node_modules_0lv39qnu72vap._.js","static/chunks/components_pulseira_CenaPulseira_jsx_1glgc04h6a044._.js","static/chunks/_117ojlew7kn6r._.js","static/chunks/components_pulseira_CenaPulseira_jsx_1bays8h9sk6qf._.js","static/chunks/_035uapln6d3l-._.js","static/chunks/node_modules_0874ff-ucpsjl._.js","static/chunks/node_modules_three_build_three_core_18d0oq6so9l-t.js","static/chunks/node_modules_three_build_three_module_03rsyo66totzs.js","static/chunks/node_modules_three_examples_jsm_1yqpfkyd7nvhz._.js","static/chunks/_1iz_2j9os1qkn._.js","static/chunks/_1hhh9zqah5_-c._.js"],
+    source: "entry"
+});

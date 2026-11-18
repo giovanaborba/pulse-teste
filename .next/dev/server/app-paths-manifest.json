@@ -1,0 +1,5 @@
+{
+  "/api/rotas/route": "app/api/rotas/route.js",
+  "/page": "app/page.js",
+  "/simulador/page": "app/simulador/page.js"
+}
